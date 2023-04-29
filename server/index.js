@@ -1,5 +1,12 @@
 const express = require("express");
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+//require statement below have to be in this order or will error-out.
+require('./models/user');
 require('./services/passport');
+
+
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
